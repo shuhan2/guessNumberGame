@@ -15,21 +15,9 @@ public class FirstGuessNumberGame {
     if (numbers.size() != 4 || new HashSet<>(numbers).size() < numbers.size()) {
       return "Wrong input, input again";
     }
+    int aCount = (int) numbers.stream().filter(number -> answer.indexOf(number) == numbers.indexOf(number)).count();
+    int bCount = (int) numbers.stream().filter(number -> answer.contains(number)).count() - aCount;
 
-    if (numbers.equals(answer)) {
-      return "4A0B";
-    }
-    int aCount = 0;
-    int bCount = 0;
-    for (int index = 0; index < 4; index++) {
-      if (numbers.get(index).equals(answer.get(index))) {
-        aCount++;
-      }
-      else if (answer.contains(numbers.get(index))) {
-        bCount ++;
-      }
-    }
-
-    return aCount + "A" + bCount + "B";
+    return String.format("%dA%dB", aCount, bCount);
   }
 }
