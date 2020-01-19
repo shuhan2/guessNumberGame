@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group 'guessnumber'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.2.0'
+    testRuntime 'org.junit.jupiter:junit-jupiter-engine:5.2.0'
+    testImplementation 'org.mockito:mockito-junit-jupiter:2.19.0'
+
+}
+
+test {
+    useJUnitPlatform()
+}
