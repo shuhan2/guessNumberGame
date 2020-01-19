@@ -1,5 +1,6 @@
 package first;
 
+import java.util.HashSet;
 import java.util.List;
 
 public class FirstGuessNumberGame {
@@ -11,6 +12,10 @@ public class FirstGuessNumberGame {
   }
 
   public String guessNumber(List<Integer> numbers) {
+    HashSet<Integer> set = new HashSet<>(numbers);
+    if (set.size() < numbers.size()) {
+      return "Wrong input, input again";
+    }
     if (numbers.equals(answer)) {
       return "4A0B";
     }

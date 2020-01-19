@@ -64,8 +64,18 @@ class FirstGuessNumberGameTest {
     when(firstAnswerGenerator.generateAnswer()).thenReturn(Arrays.asList(1, 2, 3, 4));
     game = new FirstGuessNumberGame(firstAnswerGenerator);
 
-    String output = game.guessNumber(Arrays.asList(0,3 ,2, 4));
+    String output = game.guessNumber(Arrays.asList(0, 3, 2, 4));
 
     assertEquals("1A2B", output);
+  }
+
+  @Test
+  void should_return_wrong_input_when_guess_number_given_answer_is_1_2_3_4_and_input_1_1_3_4() {
+    when(firstAnswerGenerator.generateAnswer()).thenReturn(Arrays.asList(1, 2, 3, 4));
+    game = new FirstGuessNumberGame(firstAnswerGenerator);
+
+    String output = game.guessNumber(Arrays.asList(1, 1, 3, 4));
+
+    assertEquals("Wrong input, input again", output);
   }
 }
