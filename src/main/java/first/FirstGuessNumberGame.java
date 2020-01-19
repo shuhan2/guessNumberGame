@@ -14,6 +14,12 @@ public class FirstGuessNumberGame {
     if (numbers.equals(answer)) {
       return "4A0B";
     }
-    return "0A0B";
+    int aCount = 0;
+    for (int index = 0; index < 4; index++) {
+      if (numbers.get(index).equals(answer.get(index))) {
+        aCount++;
+      }
+    }
+    return aCount + "A0B";
   }
 }
