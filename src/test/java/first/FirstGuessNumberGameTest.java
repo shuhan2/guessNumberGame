@@ -1,6 +1,7 @@
 package first;
 
 import java.util.Arrays;
+import java.util.Collections;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -70,11 +71,21 @@ class FirstGuessNumberGameTest {
   }
 
   @Test
-  void should_return_wrong_input_when_guess_number_given_answer_is_1_2_3_4_and_input_1_1_3_4() {
-    when(firstAnswerGenerator.generateAnswer()).thenReturn(Arrays.asList(1, 2, 3, 4));
+  void should_return_wrong_input_when_guess_number_given_input_has_duplicate_value() {
+    when(firstAnswerGenerator.generateAnswer()).thenReturn(Collections.emptyList());
     game = new FirstGuessNumberGame(firstAnswerGenerator);
 
     String output = game.guessNumber(Arrays.asList(1, 1, 3, 4));
+
+    assertEquals("Wrong input, input again", output);
+  }
+
+  @Test
+  void should_return_wrong_input_when_guess_number_given_input_length_not_4() {
+    when(firstAnswerGenerator.generateAnswer()).thenReturn(Collections.emptyList());
+    game = new FirstGuessNumberGame(firstAnswerGenerator);
+
+    String output = game.guessNumber(Arrays.asList(1, 2, 3));
 
     assertEquals("Wrong input, input again", output);
   }

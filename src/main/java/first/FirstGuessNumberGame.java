@@ -12,10 +12,10 @@ public class FirstGuessNumberGame {
   }
 
   public String guessNumber(List<Integer> numbers) {
-    HashSet<Integer> set = new HashSet<>(numbers);
-    if (set.size() < numbers.size()) {
+    if (numbers.size() != 4 || new HashSet<>(numbers).size() < numbers.size()) {
       return "Wrong input, input again";
     }
+
     if (numbers.equals(answer)) {
       return "4A0B";
     }
