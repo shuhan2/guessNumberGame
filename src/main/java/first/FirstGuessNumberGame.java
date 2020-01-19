@@ -14,6 +14,6 @@ public class FirstGuessNumberGame {
     if (numbers.equals(answer)) {
       return "4A0B";
     }
-    return null;
+    return "0A0B";
   }
 }

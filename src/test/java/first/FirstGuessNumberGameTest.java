@@ -29,4 +29,14 @@ class FirstGuessNumberGameTest {
 
     assertEquals("4A0B", output);
   }
+
+  @Test
+  void should_return_0A0B_when_guess_number_given_answer_is_1_2_3_4_and_input_5_6_7_8() {
+    when(firstAnswerGenerator.generateAnswer()).thenReturn(Arrays.asList(1, 2, 3, 4));
+    game = new FirstGuessNumberGame(firstAnswerGenerator);
+
+    String output = game.guessNumber(Arrays.asList(5, 6, 7, 8));
+
+    assertEquals("0A0B", output);
+  }
 }
