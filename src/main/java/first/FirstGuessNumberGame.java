@@ -15,11 +15,16 @@ public class FirstGuessNumberGame {
       return "4A0B";
     }
     int aCount = 0;
+    int bCount = 0;
     for (int index = 0; index < 4; index++) {
       if (numbers.get(index).equals(answer.get(index))) {
         aCount++;
       }
+      else if (answer.contains(numbers.get(index))) {
+        bCount ++;
+      }
     }
-    return aCount + "A0B";
+
+    return aCount + "A" + bCount + "B";
   }
 }
